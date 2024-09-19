@@ -1,0 +1,66 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName crud
+    buildTool maven
+    cacheProvider no
+    clientFramework no
+    creationTimestamp 1726674764359
+    databaseType sql
+    devDatabaseType mysql
+    enableHibernateCache false
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhipsterVersion "8.7.0"
+    jwtSecretKey "ZDc4MmU2NWMzYmEzMmU2NzNmM2JmYjYxODFlNzcyYzVhNGM0ZjVmZGY3MDE1N2FiYjI1MThiM2I1OThjOTEwMjhmOWFkNzY5NzQ4MGZiNjlkMjg2YWJhM2JkZTEzMmExOWZjMzhlODY4MDZmZTdlZjI4ODRkOTM4MjEyZWZjMjY="
+    languages [en]
+    messageBroker false
+    microfrontends []
+    nativeLanguage en
+    packageName com.crud
+    prodDatabaseType mysql
+    reactive false
+    searchEngine false
+    serviceDiscoveryType false
+    skipClient true
+    testFrameworks []
+    websocket false
+  }
+
+  entities Company, Employee, Manager, Workers
+}
+
+entity Company {
+  id Long
+  name String
+  place String
+  domain String
+}
+entity Employee {
+  name String required
+  age Integer
+  gender String
+  pancard Long
+}
+
+relationship ManyToOne {
+  Employee{company} to Company{employee}
+}
+
+entity Manager{
+  id UUID
+  name String
+  age Integer min(20) max(50)
+  gender String required
+}
+
+entity Workers{
+  name String
+  age Integer
+}
+
+relationship ManyToOne{
+  Workers{manager(id)} to Manager{id}
+}
+
