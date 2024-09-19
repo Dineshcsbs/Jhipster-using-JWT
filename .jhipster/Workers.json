@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "changelogDate": "20240918164820"
+  },
+  "applications": ["crud"],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Workers",
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "manager",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "manager",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

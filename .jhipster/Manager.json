@@ -1,0 +1,39 @@
+{
+  "annotations": {
+    "changelogDate": "20240918164819"
+  },
+  "applications": ["crud"],
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMax": "50",
+      "fieldValidateRulesMin": "20"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Manager",
+  "relationships": [
+    {
+      "otherEntityName": "workers",
+      "otherEntityRelationshipName": "manager",
+      "relationshipName": "id",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
